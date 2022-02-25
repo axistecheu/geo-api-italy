@@ -21,4 +21,4 @@ $router->get('/', function () use ($router) {
 
 $router->get('regions', 'ApiController@regions');
 $router->get('provinces', 'ApiController@provinces');
-$router->get('comunes', 'ApiController@comunes');
+$router->get('comuni', 'ApiController@comuni');

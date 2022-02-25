@@ -36,17 +36,17 @@ class ApiController extends Controller
         return response()->json($provinces->get());
     }
 
-    public function comunes(Request $request) {
-        $comunes = Comune::query();
+    public function comuni(Request $request) {
+        $comuni = Comune::query();
 
         if($request->province_id) {
-            $comunes->where('province_id', $request->province_id);
+            $comuni->where('province_id', $request->province_id);
         }
 
         if($request->search) {
-            $comunes->where('name', 'like', '%' . $request->search . '%');
+            $comuni->where('name', 'like', '%' . $request->search . '%');
         }
 
-        return response()->json($comunes->get());
+        return response()->json($comuni->get());
     }
 }

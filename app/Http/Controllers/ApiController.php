@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-    public function regions() {
+    public function regions(Request $request) {
 
         $regions = Region::query();
 

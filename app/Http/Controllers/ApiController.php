@@ -28,6 +28,14 @@ class ApiController extends Controller
         if($request->region_id) {
              $provinces->where('region_id', $request->region_id);
         }
+
+        if($request->region) {
+            $region = Region::where('name', $request->region)->first();
+
+            if($region){
+                $provinces->where('region_id', $region->id);
+            }
+        }
     
         if($request->search) {
             $provinces->where('name', 'like', '%' . $request->search . '%');
@@ -41,6 +49,14 @@ class ApiController extends Controller
 
         if($request->province_id) {
             $comuni->where('province_id', $request->province_id);
+        }
+
+         if($request->province) {
+            $province = Province::where('name', $request->province)->first();
+
+            if($province){
+                $comuni->where('province_id', $province->id);
+            }
         }
 
         if($request->search) {
